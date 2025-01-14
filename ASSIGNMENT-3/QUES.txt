@@ -1,0 +1,35 @@
+abstract class Emp{
+    eid ;
+    display();
+    abstract raiseSalary();
+}
+class Clerk
+{
+
+}
+class  Programmer{
+
+}
+class Managae{
+
+}
+
+* use array and anything that we have not covered
+* unique id should be allowed to enter 
+* No one should be able to inherit from clerk Programmer Manager
+* No one can override display() method
+* Keep all classes in emp.assignment package
+
+1. Create 
+2. display
+3. Raise Salary
+4. Remove
+5. Exit
+----------
+Enter choice:-4
+enter emp id:-55
+name
+age 
+Salary
+designation
+Do you really want to remove this employee record(y/n)? 
