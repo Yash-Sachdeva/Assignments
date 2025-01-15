@@ -1,5 +1,6 @@
 package emp.assignment;
 import java.util.*;
+import java.util.regex.*;
 abstract class Employee{
         static int empCount = 0;
         private int eid;
@@ -10,48 +11,16 @@ abstract class Employee{
         public Employee(int eid,float salary,String designation)
         {
             Scanner sc = new Scanner(System.in);
-            System.out.print("Enter the Name - ");
-            String name = sc.next();
-            int age=0;
-            boolean f=true;
-            while(true)
-            {
-                try{
-                    System.out.print("Enter the Age - ");
-                    f=false;
-                    age=sc.nextInt(); 
-                    if(age<21 || age>60)
-                    {
-                        throw new AgeException("The age is not between 21 and 60");
-                    }   
-                }
-                catch(InputMismatchException e)
-                {
-                    f=true;
-                    System.out.println("exception"+e.getMessage());
-                    e.printStackTrace();
-                    sc.nextLine();
-                    continue;
-                }
-                catch(AgeException e)
-                {
-                    f=true;
-                    System.out.println("Error"+e.getMessage());
-                    e.printStackTrace();
-                    continue;
-                }
-                break;
-            }
-            
-                this.salary = salary;
-                this.age=age;
-                this.eid = eid;
-                this.name = name;
-                this.designation = designation;
-            
-                sc.close();
+            String name=Menu.readName();
+            int age=Menu.readAge(21,60); 
+            this.salary = salary;
+            this.age=age;
+            this.eid = eid;
+            this.name = name;
+            this.designation = designation;
         }
-        public void display(){
+        public void display()
+        {
             System.out.println("Name - "+name);
             System.out.println("Employee ID - "+eid);
             System.out.println("Age - "+age);
@@ -108,48 +77,105 @@ class AgeException extends RuntimeException{
         super(msg);
     }
 }
- 
+class NameException extends RuntimeException{
+    public NameException()
+    {
+        super();
+    }
+    public NameException(String msg)
+    {
+        super(msg);
+    }
+}
+
+class Menu{
+    public static int readChoice(int maxChoice)
+    {
+        Scanner sc=new Scanner(System.in);
+        int choice;
+        try{
+            choice=sc.nextInt();
+            if(choice>maxChoice)
+            {
+                System.out.println("Please choose between 1 and "+maxChoice);
+            }
+        }
+        catch(InputMismatchException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        return choice;
+    }
+    public static String readName(){
+        Scanner sc = new Scanner(System.in);
+        String name = "";
+        while(true){
+            System.out.println("Enter the Name : ");
+            try{
+                name = sc.nextLine();
+                if(!name.matches("[A-Z][A-Za-z]*[ ][A-Z][A-Za-z]*"))
+                    throw new NameException("Name is not in correct format");
+            }
+            catch(NameException e){
+                System.out.println(e.getMessage());
+                continue;
+            }
+            return name;
+        }
+    }
+    public static int readAge(int l,int r){
+        Scanner sc = new Scanner(System.in);
+        int age = 0;
+        while(true){
+            System.out.println("Enter the Age : ");
+            try{
+                age = sc.nextInt();
+                if(age<l||age>r){
+                    throw new AgeException("The age is not in the given range");
+                }
+            }
+            catch(InputMismatchException e){
+                e.printStackTrace();
+                sc.nextLine();
+                continue;
+            }
+           
+            catch(AgeException e){
+                System.out.println(e.getMessage());
+                sc.nextLine();
+                continue;
+            }
+             break;
+        }
+        return age;
+    }
+}
 public class EmpManagementApp{
     public static void main (String args[]){
         Scanner sc = new Scanner(System.in);
         Employee emp[] = new Employee[100];
         while(true){
             int choice1;
-            try
-            {
-                System.out.println("Enter Choice :-");
-                System.out.println("-------------");
-                System.out.println("1. Create\n2. Display\n3. Raise Salary\n4. Remove\n5. Exit");
-                System.out.println("-------------");
-                choice1= sc.nextInt();
-            }
-            catch(InputMismatchException e)
-            {
-                e.printStackTrace();
-                sc.nextLine();
-                continue;
-            }
+            System.out.println("Enter Choice :-");
+            System.out.println("-------------");
+            System.out.println("1. Create\n2. Display\n3. Raise Salary\n4. Remove\n5. Exit");
+            System.out.println("-------------");
+            choice1= Menu.readChoice(5);
             if(choice1==5)
                 break;
             switch(choice1){
                 case 1:
                 {
                     int cnt = 0;
-                    while(true){
+                    while(true)
+                    {
                         int choice2;
-                        try{
-                            System.out.println("Enter Choice :-");
-                            System.out.println("-------------");
-                            System.out.println("1. Clerk\n2. Programmer\n3. Manager\n4. Exit");
-                            System.out.println("-------------");
-                            choice2 = sc.nextInt();
-                        }
-                        catch(InputMismatchException e)
-                        {
-                            e.printStackTrace();
-                            sc.nextLine();
-                            continue;
-                        }
+                        System.out.println("Enter Choice :-");
+                        System.out.println("-------------");
+                        System.out.println("1. Clerk\n2. Programmer\n3. Manager\n4. Exit");
+                        System.out.println("-------------");
+                        choice2 = Menu.readChoice(4);
                         if(choice2==4)
                             break;
                         switch(choice2){

@@ -1,0 +1,11 @@
+[abcd]- 
+[^abcd]
+[a-d][p-r]
+[a-d[p-r]]
+[a-d&&[p-r]]
+
+
+Name shoudl only start with capital
+maximum 2 words
+if two are then both the first char should be capital letters
+should not contain any special character if so retake the input the name and 
