@@ -1,0 +1,20 @@
+abstract {
+    eid;
+    display();
+    abstract raiseSalary();
+}
+
+class Clerk{}
+class Programmer{}
+class Manager{}
+class CEO{}
+
+*No one should be able to  inherit from Clerk/Programmer/Manager
+*No one can override display() method
+*Keep all classes in emp.assiignment package
+
+1. Create
+2. display
+3. Raise Salary 
+4. Remove
+5. Exit 

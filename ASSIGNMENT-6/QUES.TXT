@@ -1,0 +1,21 @@
+class A
+{
+}
+class B extends A
+{
+}
+ 
+public class SingletonAssignment
+{
+	public static void main(String args[])
+	{
+		A a1 = A.getObject();
+		B b1 = B.getObject();
+		//A a2 = A.getObject();
+		//B b2 = B.getObject();
+	}
+}
+ 
+* Should be able to create only 1 object of A class
+* Should be able to create only 1 object of B class
+* If tried to create more than 1 object of any of these two classes, then exception should be raised
