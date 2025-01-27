@@ -1,0 +1,29 @@
+public class Calculator
+{
+	public int add(int a, int b)
+	{
+		return a+b;
+	}
+	public int sub(int a, int b)
+	{
+		return a-b;
+	}
+	public int mul(int a, int b)
+	{
+		return a*b;
+	}
+	public int div(int a, int b)
+	{
+		return a/b;
+	}
+}
+ 
+java Calculation
+Enter operation : sub
+Enter parameter 1 : 20
+Enter parameter 2 : 10
+Result : 10
+
+// no hardcoding 
+// use reflection api
+// the coe should run in the runtime

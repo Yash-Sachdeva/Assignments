@@ -1,0 +1,4 @@
+* write all the data to a file
+* record fields can be seperated by , and stored as a csv file
+* display- reading from the file
+* update the record in the file
