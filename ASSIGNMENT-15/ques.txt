@@ -1,0 +1,5 @@
+find out the employees who are earning more more salary then his/her manager only
+
+ans- 
+
+select * from employee as e1 join employee e2 on e1.mgr_id=e2.eid where e1.salary>e2.salary;

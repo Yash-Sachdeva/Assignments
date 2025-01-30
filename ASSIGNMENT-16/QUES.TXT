@@ -1,0 +1,33 @@
+-----------------------
+   1. Create
+   2. Display
+   3. Appraisal
+   4. Search
+   5. Remove
+   6. Exit
+-----------------------
+Enter choice :- 1
+ 
+(This is for Option 1)
+-----------------------
+   1. Clerk
+   2. Programmer
+   3. Manager
+   4. Others
+   5. Exit
+-----------------------
+Enter choice :- 1
+ 
+(This is for Option 2)
+-----------------------
+   1. By ID
+   2. Name
+   3. Designation
+   4. Age
+   5. Salary
+   6. Exit
+-----------------------
+Enter choice :- 1
+ 
+ 
+EMPLOYEE (EID, NAME, AGE, SALARY, DESIGNATION)

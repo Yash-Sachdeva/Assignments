@@ -149,7 +149,7 @@ class NameException extends RuntimeException{
         super(msg);
     }
 }
-class Menu{
+class Menu{ 
     public static int readChoice(int maxChoice){
         Scanner sc = new Scanner(System.in);
         int choice;

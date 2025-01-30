@@ -1,0 +1,14 @@
+empdb
+----
+EMPLOYEE 
+    EID
+    NAME
+    AGE(21 TO 60)
+    GENDER(MALE AND FEMALE)
+    SALARY(99999.99)
+    DESIGNATION(PROGRAMMER/TESTER/ADMIN/MANAGER)
+    MGR_ID(POINTING TO EID)
+    EMAIL_ID(NAME@COMPANY.COM)
+    MARRIED(TRUE/FALSE)
+    JOINING_DATE(current date as joining date if no input by default current date)
+    
