@@ -1,0 +1,15 @@
+order table(sql table)
+------
+product_id       product_name       quantity    date
+
+Year        quantity      sales
+2020
+2021
+2022
+2023
+2024
+
+pivot 
+unpivot
+
+(in postgresql)
